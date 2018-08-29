@@ -116,6 +116,11 @@
 
 		</div>
 
+		<div class="row center">
+
+			<p class="green-text" id="result">Hasil</p>
+		</div>
+
 		<br><br>
 	</div>
 
@@ -143,6 +148,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#loader").hide();
+		$("#result").hide();
 	});
 </script>
 <script>
@@ -155,8 +161,10 @@
 			data : {"value" : value},
 			success:function(data) {
 				$("#loader").hide();
+				$("#result").show();
 				var result = JSON.parse(data);
-				alert(result);
+
+				document.getElementById("result").innerHTML = result;
 			}
 		});
 	}
